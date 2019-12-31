@@ -1,52 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { getCourses } from "../api/courseApi";
 
-class CoursesPage extends React.Component {
-  //   constructor(props) {
-  //     super(props);
+function CoursesPage() {
+  const [courses, setCourses] = useState([]);
 
-  //     this.state = {
-  //       courses: []
-  //     };
-  //   }
+  useEffect(() => {
+    getCourses().then(_courses => setCourses(_courses));
+  }, []);
 
-  // CLASS FIELD SYNTAX
-  state = {
-    courses: []
-  };
-
-  componentDidMount() {
-    // let's make some API calls!  Makes sure setState has already run.
-    getCourses().then(courses => this.setState({ courses: courses }));
-  }
-
-  render() {
-    return (
-      <>
-        <h2>Courses</h2>
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Author Id</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.courses.map(course => {
-              return (
-                <tr key={course.id}>
-                  <td>{course.title}</td>
-                  <td>{course.authorId}</td>
-                  <td>{course.category}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </>
-    );
-  }
+  // Render is implied in a function component.  Whatever we return is rendered.
+  return (
+    <>
+      <h2>Courses</h2>
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author Id</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody>
+          {courses.map(course => {
+            return (
+              <tr key={course.id}>
+                <td>{course.title}</td>
+                <td>{course.authorId}</td>
+                <td>{course.category}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
+  );
 }
 
 export default CoursesPage;
