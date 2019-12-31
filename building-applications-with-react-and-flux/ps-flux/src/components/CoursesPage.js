@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
+// Refactor to use a function component and useState and useEffect hooks.
+// Notice the wonderful disappearance of "this"
 import { getCourses } from "../api/courseApi";
 
 function CoursesPage() {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
+    // Underscore to avoid naming collision.
     getCourses().then(_courses => setCourses(_courses));
-  }, []);
+  }, []); // <- Dependency array to tell useEffect when to re-run. Empty array = run one time
 
   // Render is implied in a function component.  Whatever we return is rendered.
   return (
