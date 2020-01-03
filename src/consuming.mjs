@@ -72,7 +72,6 @@ export function final() {
       setTimeout(() => {
         hideWaiting();
       }, 1500);
-
-      appendText(" -- COMPLETELY DONE");
+      appendText("<br /> *COMPLETELY DONE*");
     });
 }
