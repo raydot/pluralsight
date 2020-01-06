@@ -1,3 +1,23 @@
+## Flux API
+
+Has five functions:
+
+1.  register(function callback)
+
+2.  unregister(string id)
+
+3.  waitFor(array<string> ids)
+
+4.  dispatch(object payload)
+
+5.  isDispatching()
+
+Difference between Flux and subscription model:
+
+1.  Every payload is dispatched to <em>all</em> registered callbacks.
+
+2.  Callbacks can wait for other callbacks.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
