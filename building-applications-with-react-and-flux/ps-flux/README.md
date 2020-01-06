@@ -21,10 +21,10 @@ Difference between Flux and subscription model:
 Things to do:
 <ul>
   <li>Show 404 for bogus slug</li>
-<liDisplay author name on CoursesPage</li>
-<liPopulate Author dropdown via API data</li>
-<liCreate a reusable dropdown component</li>
-<liAdd Author management</li>
+<li>Display author name on CoursesPage</li>
+<li>Populate Author dropdown via API data</li>
+<li>Create a reusable dropdown component</li>
+<li>Add Author management</li>
 </ul>
 
 ## CRA Boilerplate
