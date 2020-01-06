@@ -18,6 +18,14 @@ Difference between Flux and subscription model:
 
 2.  Callbacks can wait for other callbacks.
 
+Things to do:
+
+Show 404 for bogus slug
+Display author name on CoursesPage
+Populate Author dropdown via API data
+Create a reusable dropdown component
+Add Author management.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
