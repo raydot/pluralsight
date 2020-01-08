@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        window.onload = function () {
+            calculator.doAdd(2, 2);
+            calculator.doSubtract(2, 2);
+        };
+    </script>
+</head>
+<body>
+    <div id="Output"></div>
+    <script>
+        //calculator.js
+        var calculator = function (eq) {
+            //private members
+            var eqCtl = document.getElementById(eq),
+                add = function (x, y) {
+                    eqCtl.innerHTML = x + y;
+                },
+                substract = function (x, y) {
+                    alert(x - y);
+                };
+
+            //public members
+            return {
+                add: add,
+                subtract: substract
+            };
+        } ('Output');
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        window.onload = function () {
+//            Calculator.prototype.add = function (x, y) {
+//                this.eqCtl.innerHTML = x * y;
+//            };
+
+            var calc = new Calculator('Output');
+            calc.add(3, 3);
+            calc.subtract(2, 2);
+        };
+
+        //calculator.js
+        //constructor
+        var Calculator = function (eq) {
+            //state goes here
+            this.eqCtl = document.getElementById(eq);
+        };
+
+        Calculator.prototype = function () {
+            //private members
+            var add = function (x, y) {
+                this.eqCtl.innerHTML = x + y;
+            },
+            subtract = function (x, y) {
+                alert(x - y);
+            };
+
+            //public members
+            return {
+                add: add,
+                subtract: subtract
+            };
+        } ();
+
+    </script>
+</head>
+<body>
+    <div id="Output"></div>
+</body>
+</html>

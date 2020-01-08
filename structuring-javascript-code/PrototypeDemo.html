@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      window.onload = function() {
+        /**
+         *  What if I don't like the add function?  I can override it without
+         *  ever touching the original code!
+         */
+        Calculator.prototype.add = function(x, y) {
+          var val = x - y; // It's opposite day!
+          this.eqCtl.innerHTML = val;
+        };
+
+        var c = new Calculator("eq");
+        c.add(11, 12);
+      };
+
+      var Calculator = function(eq) {
+        this.eqCtl = document.getElementById(eq);
+      };
+
+      Calculator.prototype = {
+        // object literal
+        add: function(x, y) {
+          var val = x + y;
+          this.eqCtl.innerHTML = val;
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <div id="eq"></div>
+  </body>
+</html>

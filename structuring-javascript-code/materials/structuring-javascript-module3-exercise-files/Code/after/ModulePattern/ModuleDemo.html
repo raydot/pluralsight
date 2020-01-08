@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script>
+        window.onload = function () {
+            var calc = new Calculator('Output');
+            calc.add(2, 2);
+            alert(calc.eqCtl.innerHTML);
+        }
+
+        //calculator.js
+        //Similar to a class container
+        var Calculator = function (eq) {
+            //private members
+            var eqCtl = document.getElementById(eq);
+
+            return {
+                //public
+                add: function (x, y) {
+                    var val = x + y;
+                    eqCtl.innerHTML = val;
+                }
+            };
+
+        };
+    </script>
+</head>
+<body>
+    <div id="Output"></div>
+</body>
+</html>
