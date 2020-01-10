@@ -1,17 +1,21 @@
 ﻿$(document).ready(function() {
-  loadSettings();
+    var ls = new LocalStorage();
+  ls.loadSettings();
   $("#SubmitButton").click(function() {
-    if (hasLocalStorage) storeSettings();
+    if (ls.hasLocalStorage) ls.storeSettings();
     else alert("No local storage support");
   });
   $("#ClearButton").click(function() {
-    localStorage.clear();
-    loadSettings();
+    myNS.localStorage.clear();
+    ls.loadSettings();
   });
 });
 
-var LocalStorage = function() {};
+var myNS = myNS || {}
+var myNS.LocalStorage = function() {};
 
+
+// Remove these from global scope by converting to protype pattern
 LocalStorage.prototype = (function() {
   // private members
   var loadSettings = function() {
@@ -19,7 +23,7 @@ LocalStorage.prototype = (function() {
     var state = localStorage.getItem("state");
     $("#NameTextBox").val(name);
     $("#StatesSelect").val(state);
-  };
+  },
 
   var storeSettings = function() {
     try {
@@ -31,7 +35,7 @@ LocalStorage.prototype = (function() {
         alert("Storage quota exceeded");
       }
     }
-  };
+  },
 
   var hasLocalStorage = function() {
     return "localStorage" in window && window["localStorage"] != null;

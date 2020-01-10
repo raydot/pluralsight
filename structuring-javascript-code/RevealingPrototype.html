@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <script>
+      window.onload = function() {
+        // Let's override through prototyping!
+        Calculator.prototype.add = function(x, y) {
+          // multiply instead of add
+          this.eqCtl.innerHTML = x * y;
+        };
+
+        var calc = new Calculator("Output");
+        calc.add(11, 12);
+        calc.subtract(2, 5);
+      };
+
+      //calculator.js
+      var Calculator = function(eq) {
+        // state (unique to each instance)
+        this.eqCtl = document.getElementById(eq);
+      };
+
+      Calculator.prototype = (function() {
+        // functions will be shared and not duplicated
+        // private members
+        var add = function(x, y) {
+            this.eqCtl.innerHTML = x + y;
+          },
+          subtract = function(x, y) {
+            alert(x - y);
+          };
+        //public members
+        return {
+          add: add,
+          subtract: subtract
+        };
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="Output"></div>
+  </body>
+</html>

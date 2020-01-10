@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    window.onload = function () { calculator.add(2,4) calculator.substract(10,
+    5) }
+  </head>
+  <body>
+    <div id="output"></div>
+    <script>
+      //calculator.js
+      var calculator = (function(eq) {
+        var eqCtl = document.getElementById(eq);
+        (add = function(x, y) {
+          eqCtl.innerHTML = x + y;
+        }),
+          (subtract = function(x, y) {
+            alert(x - y);
+          });
+        //public members aliased
+        return {
+          /* doAdd: add,
+              doSubtract: subtract */
+
+          // better still:
+          add: add,
+          subtract: subtract
+        };
+      })("Output"); // self invoked AND singleton
+    </script>
+  </body>
+</html>

@@ -11,20 +11,24 @@
          *  What if I don't like the add function?  I can override it without
          *  ever touching the original code!
          */
-        Calculator.prototype.add = function(x, y) {
-          var val = x - y; // It's opposite day!
-          this.eqCtl.innerHTML = val;
-        };
+        // Calculator.prototype.add = function(x, y) {
+        //   var val = x - y; // It's opposite day!
+        //   this.eqCtl.innerHTML = val;
+        // };
 
-        var c = new Calculator("eq");
+        var c = new myNS.Calculator("eq");
         c.add(11, 12);
       };
 
-      var Calculator = function(eq) {
+      // Create namespace, eliminate name conflict
+      // if myNS exists, use it; otherwise, new object
+      var myNS = myNS || {};
+
+      myNS.Calculator = function(eq) {
         this.eqCtl = document.getElementById(eq);
       };
 
-      Calculator.prototype = {
+      myNS.Calculator.prototype = {
         // object literal
         add: function(x, y) {
           var val = x + y;

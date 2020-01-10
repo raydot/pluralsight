@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      window.onload = function() {
+        var calc = new Calculator("Output");
+        calc.add(11, 12);
+        // Won't work!
+        alert(calc.eqCtl.innerHTML);
+      };
+
+      //would normally be external: calculator.js
+      // similar to a class container
+      var Calculator = function(eq) {
+        // private members
+        var eqCtl = document.getElementById(eq);
+
+        return {
+          //public
+          add: function(x, y) {
+            var val = x + y;
+            eqCtl.innerHTML = val;
+          }
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="Output"></div>
+  </body>
+</html>
