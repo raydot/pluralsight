@@ -1,0 +1,27 @@
+{
+  "name": "typescript-fundamentals",
+  "version": "1.0.0",
+  "description": "Code exercises from the Pluralsight Typescript Fundamentals course.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raydot/pluralsight.git"
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "node"
+  ],
+  "author": "Dave Kanter",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/raydot/pluralsight/issues"
+  },
+  "homepage": "https://github.com/raydot/pluralsight#readme",
+  "dependencies": {
+    "typescript": "^3.7.4"
+  }
+}
