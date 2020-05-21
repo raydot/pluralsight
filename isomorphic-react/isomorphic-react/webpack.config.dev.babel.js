@@ -8,7 +8,7 @@ export default {
     /**
      * The scripts in entry are combined in order to create our bundle
      */
-    entry: [
+    entry: [ // List of files Babel will load
         /**
          * Webpack hot middleware enables hot reloading.
          * reload?true causes the page to reload when no hot reload handler is specified
@@ -32,8 +32,8 @@ export default {
         /**
          * Public path is necessary for webpack HMR to reload correctly when on a path other than '/'
          */
-        publicPath: '/',
-        filename: 'bundle.js',
+        publicPath: '/', // Mostly for convenience
+        filename: 'bundle.js', // Final output file
     },
     plugins: [
         /**
@@ -51,7 +51,7 @@ export default {
          */
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify('development'),
+                NODE_ENV: JSON.stringify('development'), // Can set to production or development
                 WEBPACK: true
             }
         })
