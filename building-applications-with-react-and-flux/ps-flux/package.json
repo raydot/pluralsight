@@ -13,7 +13,7 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.3.0",
     "react-toastify": "^5.1.1",
-    "serialize-javascript": "^2.1.2"
+    "serialize-javascript": "^3.1.0"
   },
   "scripts": {
     "start": "run-p start:dev start:api",
